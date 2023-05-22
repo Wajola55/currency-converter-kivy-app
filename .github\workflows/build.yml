@@ -1,24 +1,20 @@
 name: CI
+
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-        steps:
+
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Copy buildozer.spec
         run: cp /home/wioletta/Desktop/currency-converter/buildozer.spec $GITHUB_WORKSPACE/buildozer.spec
 
-
-    steps:
-      - uses: actions/checkout@v2
-
-      # used to cache dependencies with a timeout
       - name: Get Date
         id: get-date
         run: |
@@ -30,7 +26,6 @@ jobs:
         with:
           path: .buildozer_global
           key: buildozer-global-${{ hashFiles('buildozer.spec') }}
-
 
       - uses: actions/cache@v2
         with:
