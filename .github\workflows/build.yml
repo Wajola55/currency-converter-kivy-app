@@ -6,6 +6,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+        steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Copy buildozer.spec
+        run: cp /home/wioletta/Desktop/currency-converter/buildozer.spec $GITHUB_WORKSPACE/buildozer.spec
+
 
     steps:
       - uses: actions/checkout@v2
