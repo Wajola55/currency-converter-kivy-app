@@ -21,7 +21,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .buildozer_global
-          key: buildozer-global-${{ hashFiles('/home/wioletta/Desktop/currency-converter/buildozer.spec') }}
+          key: buildozer-global-${{ hashFiles('buildozer.spec') }}
+
 
       - uses: actions/cache@v2
         with:
