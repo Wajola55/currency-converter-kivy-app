@@ -20,11 +20,11 @@ jobs:
 
           export ANDROID_HOME=$HOME/android-sdk
           export ANDROID_SDK_ROOT=$ANDROID_HOME
-          export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/build-tools/30.0.3
+          export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/build-tools/30.0.3
 
           wget https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip
           unzip commandlinetools-linux-7302050_latest.zip -d $ANDROID_HOME
-          echo "y" | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.3"
+          echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.3"
 
           sudo apt-get install -y build-essential
           sudo apt-get install -y cmake pkg-config libboost-python-dev libboost-thread-dev libboost-system-dev liblog4cpp5-dev
