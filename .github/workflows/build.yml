@@ -24,11 +24,20 @@ jobs:
 
           wget https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip
           unzip commandlinetools-linux-7302050_latest.zip -d $ANDROID_HOME
-          echo "y" | $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.3"
+          echo "y" | $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30"
 
-          pip3 install --user cython buildozer
+          sudo apt-get install -y build-essential
+          sudo apt-get install -y cmake pkg-config libboost-python-dev libboost-thread-dev libboost-system-dev liblog4cpp5-dev
+
+          mkdir -p $HOME/.buildozer/android/platform/android-sdk/build-tools/
+          cd $HOME/.buildozer/android/platform/android-sdk/build-tools/
+          wget https://dl.google.com/android/repository/build-tools_r30.0.3-linux.zip
+          unzip build-tools_r30.0.3-linux.zip
+          mv android-11 $ANDROID_HOME/build-tools/30.0.3
 
           sudo apt-get install -y aidl
+
+          pip3 install --user cython buildozer
 
       - name: Get Date
         id: get-date
