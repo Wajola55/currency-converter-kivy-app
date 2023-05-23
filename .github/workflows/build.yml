@@ -17,7 +17,7 @@ jobs:
         run: |
           sudo apt-get update -y
           sudo apt-get install -y python3-pip libssl-dev cython3 libffi-dev openjdk-8-jdk git unzip wget
-          sudo pip3 install buildozer
+          sudo pip3 install buildozer cython
 
       - name: Set up Android SDK
         run: |
