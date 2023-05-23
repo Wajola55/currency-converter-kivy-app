@@ -28,18 +28,20 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .buildozer_global
-          key: buildozer-global-${{ hashFiles('buildozer.spec') }}
+          key: buildozer-global-${{ hashFiles('currency-converter-kivy-app/buildozer.spec') }}
 
       - uses: actions/cache@v2
         with:
           path: .buildozer
-          key: ${{ runner.os }}-${{ steps.get-date.outputs.date }}-${{ hashFiles('buildozer.spec') }}
+          key: ${{ runner.os }}-${{ steps.get-date.outputs.date }}-${{ hashFiles('currency-converter-kivy-app/buildozer.spec') }}
 
       - name: Build with Buildozer
-        run: buildozer android debug
+        run: |
+          cd currency-converter-kivy-app
+          buildozer android debug
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: package
-          path: ./bin
+          path: currency-converter-kivy-app/bin
