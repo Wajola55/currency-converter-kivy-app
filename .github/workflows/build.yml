@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: |
           apt-get update -y
-          apt-get install -y python3-pip libssl-dev libffi-dev
+          apt-get install -y git python3-pip libssl-dev libffi-dev
           pip3 install --upgrade pip
           pip3 install cython
           pip3 install buildozer
@@ -48,3 +48,4 @@ jobs:
         with:
           name: package
           path: bin
+
