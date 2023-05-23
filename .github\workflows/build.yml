@@ -13,8 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Copy buildozer.spec
-        run: cp ${{ github.workspace }}/buildozer.spec ${{ github.workspace }}/buildozer.spec
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y python3-pip libssl-dev cython3 libffi-dev
+          sudo pip3 install buildozer
 
       - name: Get Date
         id: get-date
