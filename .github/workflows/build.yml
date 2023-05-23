@@ -28,6 +28,8 @@ jobs:
 
           pip3 install --user cython buildozer
 
+          sudo apt-get install -y aidl
+
       - name: Get Date
         id: get-date
         run: |
