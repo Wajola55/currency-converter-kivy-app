@@ -22,7 +22,7 @@ jobs:
       - name: Get Date
         id: get-date
         run: |
-          echo "::set-output name=date::$(date -u "+%Y%m%d")"
+          echo "date=$(date -u "+%Y%m%d")" >> $GITHUB_ENV
 
       - name: Cache Buildozer global directory
         uses: actions/cache@v2
