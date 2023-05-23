@@ -13,24 +13,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install dependencies
+      - name: Set up environment
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y python3-pip libssl-dev cython3 libffi-dev openjdk-8-jdk git unzip wget
-          sudo apt-get install -y cython3
-          pip3 install --user buildozer
+          sudo apt-get install -y libssl-dev libffi-dev openjdk-8-jdk git unzip wget
 
-      - name: Set up Android SDK
-        run: |
+          export ANDROID_HOME=$HOME/android-sdk
+          export ANDROID_SDK_ROOT=$ANDROID_HOME
+          export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/30.0.3
+
           wget https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip
-          unzip commandlinetools-linux-7302050_latest.zip -d android-sdk
-          echo "y" | ./android-sdk/cmdline-tools/bin/sdkmanager --sdk_root=./android-sdk "platform-tools" "platforms;android-30" "build-tools;30.0.3"
+          unzip commandlinetools-linux-7302050_latest.zip -d $ANDROID_HOME
+          echo "y" | $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.3"
 
-      - name: Set up environment variables
-        run: |
-          echo "ANDROID_HOME=$GITHUB_WORKSPACE/android-sdk" >> $GITHUB_ENV
-          echo "ANDROID_SDK_ROOT=$GITHUB_WORKSPACE/android-sdk" >> $GITHUB_ENV
-          echo "PATH=$PATH:$GITHUB_WORKSPACE/android-sdk/platform-tools:$GITHUB_WORKSPACE/android-sdk/build-tools/30.0.3" >> $GITHUB_ENV
+          pip3 install --user cython buildozer
 
       - name: Get Date
         id: get-date
