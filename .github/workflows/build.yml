@@ -62,6 +62,10 @@ jobs:
           path: .buildozer
           key: ${{ runner.os }}-${{ steps.get-date.outputs.date }}-${{ hashFiles('buildozer.spec') }}
 
+      - name: Install missing package
+        run: |
+          sudo apt-get install -y libjaxb-api-javax-java
+
       - name: Build with Buildozer
         run: |
           cd currency-converter-kivy-app
