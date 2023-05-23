@@ -29,6 +29,7 @@ jobs:
           sudo apt-get install -y build-essential
           sudo apt-get install -y cmake pkg-config libboost-python-dev libboost-thread-dev libboost-system-dev liblog4cpp5-dev
 
+          mkdir -p $HOME/android-sdk/build-tools/
           mkdir -p $HOME/.buildozer/android/platform/android-sdk/build-tools/
           cd $HOME/.buildozer/android/platform/android-sdk/build-tools/
           wget https://dl.google.com/android/repository/build-tools_r30.0.3-linux.zip
