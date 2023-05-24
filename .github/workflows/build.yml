@@ -25,6 +25,10 @@ jobs:
           wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
           unzip sdk-tools-linux-4333796.zip -d $ANDROID_HOME
 
+          # Switch to Java 8
+          sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+          java -version
+
           echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.3"
 
           sudo apt-get install -y build-essential
@@ -39,23 +43,6 @@ jobs:
 
           sudo apt-get install -y aidl
 
-          sudo apt-get install -y default-jdk
-          sudo update-java-alternatives -s java-1.8.0-openjdk-amd64
-
-          sudo apt-get install -y libjaxb-api-java
-
-          # Download and copy JAXB libraries
-          mkdir -p libs
-          wget https://search.maven.org/remotecontent?filepath=javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar -O libs/jaxb-api.jar
-          wget https://search.maven.org/remotecontent?filepath=com/sun/xml/bind/jaxb-core/2.3.0.1/jaxb-core-2.3.0.1.jar -O libs/jaxb-core.jar
-          wget https://search.maven.org/remotecontent?filepath=com/sun/xml/bind/jaxb-impl/2.3.0.1/jaxb-impl-2.3.0.1.jar -O libs/jaxb-impl.jar
-
-          # Copy JAXB libraries to project
-          cp libs/*.jar currency-converter-kivy-app/libs
-
-          # Set the classpath to include JAXB libraries
-          export CLASSPATH=$CLASSPATH:$HOME/currency-converter-kivy-app/libs/jaxb-api.jar:$HOME/currency-converter-kivy-app/libs/jaxb-core.jar:$HOME/currency-converter-kivy-app/libs/jaxb-impl.jar
-
           pip3 install --user cython buildozer
 
       - name: Get Date
@@ -68,4 +55,3 @@ jobs:
         with:
           path: .buildozer_global
           key: buildozer-global-${{ hashFiles('buildozer.spec') }}
-
