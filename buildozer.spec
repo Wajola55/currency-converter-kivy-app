@@ -9,7 +9,7 @@ package.name = currency_converter
 package.domain = org.currencyconverter
 
 # (list) List of inclusions using pattern matching
-source.include_patterns = images/*.png
+source.include_patterns = images/*.png,libs/*.jar
 
 # (str) Source code where the main.py live
 source.dir = /home/wioletta/Desktop/currency-converter/src
