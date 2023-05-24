@@ -17,9 +17,9 @@ source.dir = src
 # (str) The application version
 version = 1.0
 
-android.sdk = 29.0.2
+android.sdk = 30.0.3
 # (str) Android SDK Build-Tools version
-android.build_tools = 29.0.2
+android.build_tools = 30.0.3
 
 
 android.ndk = 21
