@@ -54,6 +54,9 @@ jobs:
           
       - name: Install Buildozer
         run: pip3 install --user buildozer
+        
+      - name: Install Cython
+        run: pip3 install --user cython
 
 
       - name: Build APK
