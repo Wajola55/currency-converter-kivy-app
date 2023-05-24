@@ -41,7 +41,6 @@ jobs:
           $ANDROID_HOME/tools/bin/sdkmanager "build-tools;30.0.3"
 
 
-
       - name: Get Date
         id: get-date
         run: |
