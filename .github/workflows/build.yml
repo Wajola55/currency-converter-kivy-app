@@ -37,9 +37,9 @@ jobs:
 
           export CLASSPATH="$ANDROID_HOME/tools/lib:$ANDROID_HOME/tools/lib/jaxb-impl-2.3.0.1.jar:$ANDROID_HOME/tools/lib/jaxb-core-2.3.0.1.jar:$ANDROID_HOME/tools/lib/jaxb-api-2.3.1.jar"
 
-          yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses && echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.3"
+          yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
+          $ANDROID_HOME/tools/bin/sdkmanager "build-tools;30.0.3"
 
-          pip3 install --user cython buildozer
 
       - name: Get Date
         id: get-date
