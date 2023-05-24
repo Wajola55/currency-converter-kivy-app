@@ -67,4 +67,5 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .buildozer_global
-          key: buildozer-global-${{ hashFiles('buildozer
+          key: buildozer-global-${{ hashFiles('buildozer.spec') }}
+
