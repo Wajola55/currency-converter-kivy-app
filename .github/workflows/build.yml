@@ -54,7 +54,6 @@ jobs:
 
       - name: Build APK
         run: |
-          cd currency-converter-kivy-app
           buildozer android debug
 
       - name: Upload APK
