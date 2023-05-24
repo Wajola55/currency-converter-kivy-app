@@ -21,7 +21,7 @@ version = 1.0
 
 
 # (int) Android API to use
-android.api = 29
+android.api = 30
 
 # (int) Minimum API required
 android.minapi = 21
@@ -47,7 +47,7 @@ android.version_code = 1
 orientation = portrait
 
 
-requirements = python3,kivy==2.0.0,requests,pillow==9.0.1,jaxb-api
+requirements = python3,kivy==2.0.0,requests,pillow==9.0.1
 
 icon.filename = '/home/wioletta/Desktop/currency-converter/images/exchange.png'
 
