@@ -44,6 +44,18 @@ jobs:
 
           sudo apt-get install -y libjaxb-api-java
 
+          # Download and copy JAXB libraries
+          mkdir -p libs
+          wget https://search.maven.org/remotecontent?filepath=javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar -O libs/jaxb-api.jar
+          wget https://search.maven.org/remotecontent?filepath=com/sun/xml/bind/jaxb-core/2.3.0.1/jaxb-core-2.3.0.1.jar -O libs/jaxb-core.jar
+          wget https://search.maven.org/remotecontent?filepath=com/sun/xml/bind/jaxb-impl/2.3.0.1/jaxb-impl-2.3.0.1.jar -O libs/jaxb-impl.jar
+
+          # Copy JAXB libraries to project
+          cp libs/*.jar currency-converter-kivy-app/libs
+
+          # Set the classpath to include JAXB libraries
+          export CLASSPATH=$CLASSPATH:$HOME/currency-converter-kivy-app/libs/jaxb-api.jar:$HOME/currency-converter-kivy-app/libs/jaxb-core.jar:$HOME/currency-converter-kivy-app/libs/jaxb-impl.jar
+
           pip3 install --user cython buildozer
 
       - name: Get Date
@@ -55,24 +67,4 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .buildozer_global
-          key: buildozer-global-${{ hashFiles('buildozer.spec') }}
-
-      - uses: actions/cache@v2
-        with:
-          path: .buildozer
-          key: ${{ runner.os }}-${{ steps.get-date.outputs.date }}-${{ hashFiles('buildozer.spec') }}
-
-      - name: Install missing package
-        run: |
-          sudo apt-get install -y libjaxb-api-jaxb-runtime-java
-
-      - name: Build with Buildozer
-        run: |
-          cd currency-converter-kivy-app
-          $HOME/.local/bin/buildozer android debug
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: package
-          path: currency-converter-kivy-app/bin
+          key: buildozer-global-${{ hashFiles('buildozer
