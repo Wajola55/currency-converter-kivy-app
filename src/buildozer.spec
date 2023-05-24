@@ -12,30 +12,20 @@ package.domain = org.currencyconverter
 source.include_patterns = images/*.png,libs/*.jar
 
 # (str) Source code where the main.py live
-source.dir = /home/wioletta/Desktop/currency-converter/src
+source.dir = src
 
 # (str) The application version
 version = 1.0
 
-
-
+android.sdk = 30
+android.ndk = 21
+android.gradle_dependencies = 'com.android.support:support-v4:27.1.1'
 
 # (int) Android API to use
 android.api = 30
 
 # (int) Minimum API required
 android.minapi = 21
-
-# (int) Android SDK version to use
-# android.sdk = 25.2.0
-
-# (int) Android NDK version to use
-# android.ndk = /home/wioletta/Downloads/android-ndk-r20b-linux-x86_64/android-ndk-r20b
-
-
-
-
-
 
 # (list) Permissions
 android.permissions = INTERNET
@@ -46,10 +36,9 @@ android.version_code = 1
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
 
-
 requirements = python3,kivy==2.0.0,requests,pillow==9.0.1
 
-icon.filename = '/home/wioletta/Desktop/currency-converter/images/exchange.png'
+icon.filename = 'images/exchange.png'
 
 
 [buildozer]
@@ -58,4 +47,3 @@ log_level = 2
 
 # (str) Display warning if buildozer is run as root (0 = False, 1 = True)
 warn_on_root = 0
-
