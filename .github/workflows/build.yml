@@ -51,3 +51,14 @@ jobs:
         with:
           path: .buildozer_global
           key: buildozer-global-${{ hashFiles('buildozer.spec') }}
+
+      - name: Build APK
+        run: |
+          cd currency-converter-kivy-app
+          buildozer android debug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-release
+          path: bin/*.apk
