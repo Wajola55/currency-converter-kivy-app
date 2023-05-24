@@ -51,6 +51,10 @@ jobs:
         with:
           path: .buildozer_global
           key: buildozer-global-${{ hashFiles('src/buildozer.spec') }}
+          
+      - name: Install Buildozer
+        run: pip3 install --user buildozer
+
 
       - name: Build APK
         run: |
