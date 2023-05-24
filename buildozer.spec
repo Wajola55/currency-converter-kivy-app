@@ -47,7 +47,7 @@ android.version_code = 1
 orientation = portrait
 
 
-requirements = python3,kivy==2.0.0,requests,pillow==9.0.1
+requirements = python3,kivy==2.0.0,requests,pillow==9.0.1,jaxb-api
 
 icon.filename = '/home/wioletta/Desktop/currency-converter/images/exchange.png'
 
