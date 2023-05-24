@@ -19,6 +19,10 @@ version = 1.0
 
 android.sdk = 30.0.3
 
+# (str) Android SDK Build-Tools version
+android.build_tools = 30.0.3
+
+
 android.ndk = 21
 android.gradle_dependencies = 'com.android.support:support-v4:27.1.1'
 
