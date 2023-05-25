@@ -17,9 +17,9 @@ source.dir = src
 # (str) The application version
 version = 1.0
 
-android.sdk = 34
+android.sdk = 33
 # (str) Android SDK Build-Tools version
-android.build_tools = 34.0.0-rc4
+android.build_tools = 33.0.2
 
 android.ndk = 22
 android.gradle_dependencies = 'com.android.support:support-v4:27.1.1'
