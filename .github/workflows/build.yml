@@ -58,7 +58,6 @@ jobs:
       - name: Install Cython
         run: pip3 install --user cython
 
-
       - name: Build APK
         run: |
           cd src
