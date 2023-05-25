@@ -25,7 +25,7 @@ jobs:
 
           export ANDROID_HOME=$HOME/android-sdk
           export ANDROID_SDK_ROOT=$ANDROID_HOME
-          export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/34.0.0-rc4
+          export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/34.0.0
 
 
           wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
@@ -38,7 +38,7 @@ jobs:
 
           export CLASSPATH="$ANDROID_HOME/tools/lib:$ANDROID_HOME/tools/lib/jaxb-impl-2.3.0.1.jar:$ANDROID_HOME/tools/lib/jaxb-core-2.3.0.1.jar:$ANDROID_HOME/tools/lib/jaxb-api-2.3.1.jar"
 
-          $ANDROID_HOME/tools/bin/sdkmanager "build-tools;34.0.0-rc4"
+          $ANDROID_HOME/tools/bin/sdkmanager "build-tools;34.0.0"
           yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
 
 
