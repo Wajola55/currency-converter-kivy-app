@@ -19,7 +19,7 @@ version = 1.0
 
 android.sdk = 31
 # (str) Android SDK Build-Tools version
-android.build_tools_version = 34.0.0
+android.build_tools_version = 34.0.0-rc3
 
 android.ndk = 22
 android.gradle_dependencies = 'com.android.support:support-v4:27.1.1'
